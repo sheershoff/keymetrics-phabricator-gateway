@@ -1,0 +1,42 @@
+{
+  "name": "keymetrics-phabricator-gateway",
+  "version": "0.0.1",
+  "description": "Gateway for translating keymetrics exception to phabricator tasks using keymetrics web hook.",
+  "keywords": [
+    "phabricator",
+    "keymetrics"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheershoff/node-keymetrics-phabricator-gateway.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sheershoff/node-keymetrics-phabricator-gateway/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "npm run create-coverage && npm run show-coverage",
+    "create-coverage": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec -t 5000",
+    "show-coverage": "start coverage\\lcov-report\\index.html"
+  },
+  "author": "Ilya Sheershoff",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "canduit": "^1.2.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.14.0",
+    "logat": "^1.0.6",
+    "morgan": "^1.7.0",
+    "pmx": "^0.6.8"
+  },
+  "devDependencies": {
+    "buffer-equal": "^1.0.0",
+    "chai": "^3.3.0",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.5.3",
+    "should": "^11.1.1",
+    "supertest": "^2.0.1"
+  }
+}

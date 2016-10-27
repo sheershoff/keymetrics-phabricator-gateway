@@ -1,0 +1,9 @@
+# IDEA files
+*.iml
+.idea
+
+# node_modules
+node_modules
+
+# ecosystem
+ecosystem.json
