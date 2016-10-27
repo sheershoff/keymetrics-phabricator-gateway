@@ -5,7 +5,8 @@
 var notEmptyEnvs = [
     'KPG_TOKEN_VALUE',
     'KPG_CONDUIT_TOKEN',
-    'KPG_CONDUIT_ROOT'
+    'KPG_CONDUIT_ROOT',
+    'KPG_PROJECT'
 ];
 
 notEmptyEnvs.map(function(i){
