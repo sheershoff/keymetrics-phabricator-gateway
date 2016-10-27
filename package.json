@@ -1,6 +1,6 @@
 {
   "name": "keymetrics-phabricator-gateway",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Gateway for translating keymetrics exception to phabricator tasks using keymetrics web hook.",
   "keywords": [
     "phabricator",
