@@ -13,6 +13,7 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.KPG_PORT || '3000');
+var hostname = process.env.KPG_HOST || '';
 app.set('port', port);
 
 /**
@@ -25,7 +26,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port,function(){
+server.listen(port,hostname,function(){
   console.log('Express server listening on %d', port);
 });
 server.on('error', onError);

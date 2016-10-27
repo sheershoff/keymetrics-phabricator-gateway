@@ -7,3 +7,6 @@ node_modules
 
 # ecosystem
 ecosystem.json
+
+# custom templates
+templates/custom*
