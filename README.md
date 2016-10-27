@@ -17,7 +17,12 @@ That's an example installation. For more secure installation check [Settings](#s
 1. Go to phabricator instance and create a bot user, then create a new conduit API token for it.
 1. Choose a project to put the tasks to or create one. Add the bot to the project visible policy, add to members of the project. If you're using Spaces, add the bot to the project spaces as well. Go to `https://your-phabricator.domain.net/api/project.query` and find the project, get it's PHID-PROJ string. you can get several PHIDs and set them as a comma-separated list.
 1. git clone the project.
-1. Run `KPG_CONDUIT_TOKEN=api-XXXXXXXXXXXXXXXXXXXXXXXXXXXX KPG_CONDUIT_ROOT=http://your-phabricator.domain.net/api/ KPG_TOKEN_VALUE=ALPHANUMERIC_HASH KPG_PROJECT=PHID-PROJ-YYYYYYYYYYYYYYYYYYYY node bin/www`.
+1. Run the project:
+  * `KPG_CONDUIT_TOKEN=api-XXXXXXXXXXXXXXXXXXXXXXXXXXXX KPG_CONDUIT_ROOT=http://your-phabricator.domain.net/api/ KPG_TOKEN_VALUE=ALPHANUMERIC_HASH KPG_PROJECT=PHID-PROJ-YYYYYYYYYYYYYYYYYYYY node bin/www`
+  * or 
+    1. use `ecosystem-example.json` to setup `ecosystem.json` (which is in gitignore)
+    1. `pm2 deploy production setup`
+    1. `pm2 deploy production`
 1. The app is running and listens on port 3000 on all interfaces.
 1. Go to the Keymetrics.io settings and put `https://kpg_address:3000/?token=ALPHANUMERIC_HASH` to webhook integration.
 
