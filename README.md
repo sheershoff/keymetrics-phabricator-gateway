@@ -11,7 +11,7 @@ Requirements
 Installation
 ------------
 
-That's an example installation. For more secure installation check [Settings](#Settings) and [Security](#Security) sections.
+That's an example installation. For more secure installation check [Settings](#settings) and [Security](#security) sections.
 
 1. You should have a phabricator instance with conduit api exposed to the app and the app exposed to the keymetrics so it can post to the hook url.
 1. Go to phabricator instance and create a bot user, then create a new conduit API token for it.
@@ -33,7 +33,7 @@ Fully configurable through environment variables.
  * `KPG_CONDUIT_ROOT` is the root URL of your conduit api. So, it should usually look like `http://your-phabricator.domain.net/api/`. **Required**
  * `KPG_CONDUIT_TOKEN` is the value of the bot's conduit token. **Required**
  * `KPG_PROJECT` is the PHID of the project to post tasks to. **Required**
- * `KPG_TOKEN_VALUE` the value of the token to check, it is `ALPHANUMERIC_HASH` from the installation section. Set to some reasonable alphanumeric gibberish string. **Required**
+ * `KPG_TOKEN_VALUE` the value of the token to check, it is `ALPHANUMERIC_HASH` from the [Installation](#installation) section. Set to some reasonable alphanumeric gibberish string. **Required**
 
 ### Optional
 
