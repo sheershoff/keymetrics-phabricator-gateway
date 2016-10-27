@@ -16,8 +16,9 @@ const formatter = function(data){
     result.title = "[KMXC] " + data.data.message + " in " + data.process.name + " (" + data.process.pm_id + ") at " + data.process.server;
 
     result.description = "Keymetrics exception id = " + data.identifier + "\n" +
-        "Infected commit: " + data.commits[0] + "\n" +
+        ((data.commits && Array.isArray(data.commits))?("Infected commit: " + data.commits[0] + "\n"):'') +
         "Keymetrics link: " + data.bucket_url + "\n" +
+        "## " + data.data.message + "\n" +
         "\nStacktrace:\n```\n" + data.data.stack + "\n```";
 
     return result;
