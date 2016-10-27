@@ -1,0 +1,56 @@
+{
+  "apps" : [
+    {
+      "name"      : "keymetrics-phabricator-gateway",
+      "script"    : "bin/www",
+      "max_memory_restart" : "1024M",
+      "env": {
+        "NODE_ENV": "production",
+        "KPG_CONDUIT_ROOT": "http://your-phabricator.domain.net/api/",
+        "KPG_CONDUIT_TOKEN": "api-XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "KPG_PROJECT": "PHID-PROJ-YYYYYYYYYYYYYYYYYYYY,PHID-PROJ-ZZZZZZZZZZZZZZZZZZZZ",
+        "KPG_TOKEN_VALUE": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "KPG_PATH": "someurl",
+        "KPG_PORT": 9797,
+        "KPG_HOST": "localhost",
+        "KPG_TOKEN_FIELD": "tokentoken"
+      }
+    },
+    {
+      "name"      : "keymetrics-phabricator-gateway-test",
+      "script"    : "bin/www",
+      "max_memory_restart" : "1024M",
+      "env": {
+        "NODE_ENV": "test",
+        "KPG_CONDUIT_ROOT": "http://your-phabricator.domain.net/api/",
+        "KPG_CONDUIT_TOKEN": "api-XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "KPG_PROJECT": "PHID-PROJ-YYYYYYYYYYYYYYYYYYYY,PHID-PROJ-ZZZZZZZZZZZZZZZZZZZZ",
+        "KPG_TOKEN_VALUE": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "KPG_PATH": "someurl",
+        "KPG_PORT": 9797,
+        "KPG_HOST": "localhost",
+        "KPG_TOKEN_FIELD": "tokentoken"
+      }
+    }
+  ],
+  "deploy" : {
+    "production" : {
+      "user" : "pm2user",
+      "host" : "someserver.net",
+      "ref"  : "origin/master",
+      "repo" : "https://github.com/sheershoff/keymetrics-phabricator-gateway.git",
+      "path" : "/var/nodejs/www/apps/keymetrics-phabricator-gateway",
+      "pre-deploy-local": "scp ecosystem.json pm2user@someserver.net:/var/nodejs/www/apps/keymetrics-phabricator-gateway",
+      "post-deploy" : "export NODE_ENV=production && git checkout master; npm install ; pm2 startOrGracefulReload ../ecosystem.json --env production --only keymetrics-phabricator-gateway"
+    },
+    "test" : {
+      "user" : "pm2user",
+      "host" : "someserver.net",
+      "ref"  : "origin/test",
+      "repo" : "https://github.com/sheershoff/keymetrics-phabricator-gateway.git",
+      "path" : "/var/nodejs/www/apps/keymetrics-phabricator-gateway-test",
+      "pre-deploy-local": "scp ecosystem.json pm2user@someserver.net:/var/nodejs/www/apps/keymetrics-phabricator-gateway-test",
+      "post-deploy" : "export NODE_ENV=test && git checkout test; npm install ; pm2 startOrGracefulReload ../ecosystem.json --env test --only keymetrics-phabricator-gateway-test"
+    }
+  }
+}
