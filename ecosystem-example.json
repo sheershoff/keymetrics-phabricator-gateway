@@ -50,7 +50,7 @@
       "repo" : "https://github.com/sheershoff/keymetrics-phabricator-gateway.git",
       "path" : "/var/nodejs/www/apps/keymetrics-phabricator-gateway-test",
       "pre-deploy-local": "scp ecosystem.json pm2user@someserver.net:/var/nodejs/www/apps/keymetrics-phabricator-gateway-test",
-      "post-deploy" : "export NODE_ENV=test && git checkout test; npm install ; pm2 startOrGracefulReload ../ecosystem.json --env test --only keymetrics-phabricator-gateway-test"
+      "post-deploy" : "export NODE_ENV=test && git checkout -B test --track origin/test; npm install ; pm2 startOrGracefulReload ../ecosystem.json --env test --only keymetrics-phabricator-gateway-test"
     }
   }
 }
